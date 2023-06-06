@@ -95,6 +95,10 @@ namespace FileEncryptorThingy
             // Convert the string to bytes
             byte[] plaintext_bytes = Encoding.UTF8.GetBytes(plaintext);
 
+            return Encrypt(plaintext_bytes);
+        }
+        public byte[] Encrypt(byte[] plaintext_bytes)
+        {
             byte[] bytesToEncrypt = new byte[Iv.Length + plaintext_bytes.Length];
             Iv.CopyTo(bytesToEncrypt, 0);
             plaintext_bytes.CopyTo(bytesToEncrypt, Iv.Length);

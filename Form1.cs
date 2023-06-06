@@ -13,10 +13,19 @@ namespace FileEncryptorThingy
         {
             try
             {
-                string text = File.ReadAllText(FileNameTextBox.Text);
+                FileContainer file;
+                if (BinaryFileCheck.Checked) //read binary file
+                {
+                    byte[] bytes = File.ReadAllBytes(FileNameTextBox.Text);
 
-                FileContainer file = new(PasswordTextBox.Text, EncryptionPicker.Text, HashPicker.Text, text);
+                    file = new(PasswordTextBox.Text, EncryptionPicker.Text, HashPicker.Text, bytes);
+                }
+                else //read string file
+                {
+                    string text = File.ReadAllText(FileNameTextBox.Text);
 
+                    file = new(PasswordTextBox.Text, EncryptionPicker.Text, HashPicker.Text, text);
+                }
                 JsonSerializerOptions options = new() { WriteIndented = true };
                 string jsonString = JsonSerializer.Serialize(file, options);
 
@@ -74,6 +83,11 @@ namespace FileEncryptorThingy
                 StatusLabel.BackColor = Color.PaleVioletRed;
                 StatusLabel.ForeColor = Color.DarkRed;
             }
+        }
+
+        private void BinaryFileCheck_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

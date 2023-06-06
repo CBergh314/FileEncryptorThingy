@@ -43,6 +43,7 @@
             StatusLabel = new Label();
             label5 = new Label();
             FileExtensionTextBox = new TextBox();
+            BinaryFileCheck = new CheckBox();
             SuspendLayout();
             // 
             // EncryptButton
@@ -176,11 +177,23 @@
             FileExtensionTextBox.Size = new Size(75, 23);
             FileExtensionTextBox.TabIndex = 13;
             // 
+            // BinaryFileCheck
+            // 
+            BinaryFileCheck.AutoSize = true;
+            BinaryFileCheck.Location = new Point(93, 73);
+            BinaryFileCheck.Name = "BinaryFileCheck";
+            BinaryFileCheck.Size = new Size(139, 19);
+            BinaryFileCheck.TabIndex = 14;
+            BinaryFileCheck.Text = "Check for Binary Files";
+            BinaryFileCheck.UseVisualStyleBackColor = true;
+            BinaryFileCheck.CheckedChanged += BinaryFileCheck_CheckedChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(359, 263);
+            Controls.Add(BinaryFileCheck);
             Controls.Add(FileExtensionTextBox);
             Controls.Add(label5);
             Controls.Add(StatusLabel);
@@ -217,5 +230,6 @@
         private Label StatusLabel;
         private Label label5;
         private TextBox FileExtensionTextBox;
+        private CheckBox BinaryFileCheck;
     }
 }
