@@ -52,6 +52,11 @@ namespace FileEncryptorThingy
             {
                 FileNameTextBox.Text = openFileDialog1.FileName;
                 FileExtensionTextBox.Text = Path.GetExtension(openFileDialog1.FileName);
+
+                if(FileExtensionTextBox.Text.ToUpper() == "BIN" || FileExtensionTextBox.Text.ToUpper() == "DAT")
+                {
+                    BinaryFileCheck.Checked = true;
+                }
             }
             StatusLabel.Text = "Status: File Selected";
             StatusLabel.BackColor = SystemColors.Control;
