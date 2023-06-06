@@ -42,7 +42,7 @@ namespace FileEncryptorThingy
 
             EncryptAlgorithm.Key = KeyEncryption;
             EncryptAlgorithm.IV = Iv;
-            EncryptAlgorithm.Padding = PaddingMode.None;
+            EncryptAlgorithm.Padding = PaddingMode.PKCS7; //Use PKCS7 padding mode as reccomended by Microsoft documentation
             EncryptAlgorithm.Mode = CipherMode.CBC;
         }
         public static HMAC HmacFactory(string algorithm, byte[] key)
